@@ -1,26 +1,27 @@
-### Instalar paquete1
-install.packages("ggplt02")
+### Oción 1::Instalar el paquete ggplot2
+install.packages("ggplot2")
 library(ggplot2)
 
-### Instalar paquete2
+### Opción 2: Instalar el paquete ggplot2 con las últimas actualizaciones
 install.packages("devtools")
 library(devtools)
 install_github("tidyverse/ggplot2")
 
-
-### Importaci�n de datos
+### Importación de datos
 propina<-read.csv('E:/Curso_vizualizacion/propina.csv')
 
-### Tres componenentes de todo gr�fico.
+### Componentes de todo gráfico, datos, la parte estética y 
 ggplot(data = propinas, aes(x = total, y = propina)) +  
   geom_point() +
   theme(aspect.ratio = 1)
 
-##Color 
+## Ejemplo, a la variable sexo se le asigna el elemento estético del color donde dicha variable cambiará de color según los valores que la misma adopte.
+
+Defino que los colores se diferenciarán de acuerdo a los valores que toma que variable
 ggplot(data = propinas, aes(x = total, y = propina, colour = sexo)) +
   geom_point() + theme(aspect.ratio = 1)
 
-##Color fijo:
+## Color fijo:
 ggplot(data = propinas, aes(x = total, y = propina) )+
      geom_point(colour = "blue") + theme(aspect.ratio = 1)
 
@@ -29,19 +30,19 @@ ggplot(data = propinas, aes(x = total, y = propina, shape = sexo)) +
   geom_point() + theme(aspect.ratio = 1)
 
 
-###Tama�o1
+###Tamaño1
 ggplot(data = propinas, aes(x = total, y = propina, size = cantidad)) +
   geom_point(alpha = 1 / 3) + theme(aspect.ratio = 1)
 
-###Tama�o2
+###Tamaño2
  ggplot(data = propinas, aes(x = total, y = propina, size = cantidad)) +
   geom_point(size=5, alpha = 1 / 3) + theme(aspect.ratio = 1)
 
-###Gramatica de gr�ficos
+###Gramatica de gráficos
 ggplot(propinas, aes(total, propina, colour = fuma)) +
       geom_point()
 
-## Capas de un gr�fico
+## Capas de un gráfico
 ggplot() +
     layer(
        data = propinas, mapping = aes(x = total, y = propina), 
@@ -65,7 +66,7 @@ ggplot() +
              color = "red", size = 10)
 
 
-###Capas de un gr�fico
+###Capas de un gráfico
 
 p1 <- ggplot() +
   layer(
